@@ -120,7 +120,7 @@ func (id Ident) String() (s string) {
 	return
 }
 
-// Returns a field tag for the original field name.
+// Tag returns a field tag for the original field name.
 func (id Ident) Tag() string {
 	return "`json:\"" + string(id) + "\"`"
 }
@@ -188,7 +188,7 @@ func (t Tree) Swap(i, j int) {
 	t.Children[i], t.Children[j] = t.Children[j], t.Children[i]
 }
 
-// Returns canonical golang of the type structure.
+// Format returns canonical golang of the type structure.
 func (t *Tree) Format() (formatted []byte, err error) {
 	// Store the raw source for debugging.
 	unformatted := []byte("type " + t.formatHelper(0))
